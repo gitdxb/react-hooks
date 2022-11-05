@@ -36,6 +36,18 @@ export default function Header() {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/apirfc">Api Rfc</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/usecallback">UseCallBack</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/usememo">UseMemo</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/useref">UseRefDemo</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/reduxdemo">ReduxDemo</NavLink>
+                        </li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
                         <input className="form-control mr-sm-2" type="text" placeholder="Search" />
@@ -46,3 +58,4 @@ export default function Header() {
         </header>
     )
 }
+ 

@@ -10,8 +10,11 @@ import Counter from './pages/hooks/Counter';
 import UseEffectDemo from './pages/hooks/UseEffectDemo';
 import ApiRcc from './pages/hooks/ApiRcc';
 import ApiRfc from './pages/hooks/ApiRfc';
+import UseCallBackDemo from './pages/hooks/UseCallBackDemo';
+import useMemoDemo from './pages/hooks/useMemoDemo';
+import UseRefDemo from './pages/hooks/UseRefDemo';
+import ReduxDemo from './pages/ReduxDemo/ReduxDemo';
 // cấu hình routing
-
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +24,7 @@ function App() {
        exact: so sánh bằng chính xác đường dẫn
        */}
       <Switch>
+        
         <Route exact path="/home" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/about" component={About} />
@@ -29,6 +33,10 @@ function App() {
         <Route exact path="/use-effect" component={UseEffectDemo} />
         <Route exact path="/apircc" component={ApiRcc} />
         <Route exact path="/apirfc" component={ApiRfc} />
+        <Route exact path="/usecallback" component={UseCallBackDemo} />
+        <Route exact path="/usememo" component={useMemoDemo} />
+        <Route exact path="/useref" component={UseRefDemo} />
+        <Route exact path="/reduxdemo" component={ReduxDemo} />
 
         {/* Khi ko có / trang cụ thể thì mặc định hiện Home */}
         <Route exact path="/" component={Home} />
