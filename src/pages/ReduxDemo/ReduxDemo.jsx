@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import { userSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addCommentAction } from '../../redux/action/fakeBookAction';
 
 export default function ReduxDemo() {
 
@@ -12,8 +13,11 @@ export default function ReduxDemo() {
         username:'',
         comment: ''
     })
+
     
-    const { mangComment } = userSelector(state => state.fakeBookReducer);
+    let dispatch = useDispatch();
+
+    const { mangComment } = useSelector(state => state.fakeBookReducer);
     // luu cac gia tri tu form
 
     let renderComment = () => {
@@ -42,15 +46,9 @@ export default function ReduxDemo() {
     let handleSubmit = (e) => {
         e.preventDefault(); // ngan load lai trang
         // tao action
-        let action = {
-            type:'ADD_COMMENT'
-            userInfo: {
-                ...userComment,
-                avatar:`https://i.pravatar.cc/?u=${userComment
-            .username}`
-            }
-        }
-        this.dispatch()
+        let action = addCommentAction(userComment)
+
+        dispatch(action)
     }
 
     return (

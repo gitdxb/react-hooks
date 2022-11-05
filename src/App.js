@@ -14,6 +14,8 @@ import UseCallBackDemo from './pages/hooks/UseCallBackDemo';
 import useMemoDemo from './pages/hooks/useMemoDemo';
 import UseRefDemo from './pages/hooks/UseRefDemo';
 import ReduxDemo from './pages/ReduxDemo/ReduxDemo';
+import ApiMiddleWare from './pages/ReduxDemo/ApiMiddleWare';
+
 // cấu hình routing
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
         <Route exact path="/usememo" component={useMemoDemo} />
         <Route exact path="/useref" component={UseRefDemo} />
         <Route exact path="/reduxdemo" component={ReduxDemo} />
+        <Route exact path="/apiredux" component={ApiMiddleWare} />
 
         {/* Khi ko có / trang cụ thể thì mặc định hiện Home */}
         <Route exact path="/" component={Home} />
