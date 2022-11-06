@@ -1,8 +1,13 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import { fakeBookReducer } from "./reducers/fakeBookReducer";
+import { phimReducer } from "./reducers/phimReducer";
+
+// cài đặt Middleware
 const rootReducer = combineReducers({
     // khai bao reducer
-    fakeBookReducer
+    fakeBookReducer,
+    phimReducer
 })
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, applyMiddleware(thunk));
