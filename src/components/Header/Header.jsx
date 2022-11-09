@@ -48,6 +48,9 @@ export default function Header() {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/reduxdemo">ReduxDemo</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/apiredux">ApiMiddleWare</NavLink>
+                        </li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
                         <input className="form-control mr-sm-2" type="text" placeholder="Search" />
