@@ -15,18 +15,40 @@ import useMemoDemo from './pages/hooks/useMemoDemo';
 import UseRefDemo from './pages/hooks/UseRefDemo';
 import ReduxDemo from './pages/ReduxDemo/ReduxDemo';
 import ApiMiddleWare from './pages/ReduxDemo/ApiMiddleWare';
+import Detail from './pages/Detail/Detail';
+import Profile from './pages/Profile/Profile';
 
 // cấu hình routing
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      {/* Đường path /home sẽ hiện component Home */}
-      {/* Nếu ko có exact thì so sánh đường dẫn có chứa ký tự thì thoả đk 
-       exact: so sánh bằng chính xác đường dẫn
+       
+      {/* <Header /> // dùng cho tất cả trang*/}
+      {/* đường path /home sẽ hiện component Home */}
+      {/* nếu không có exact thì so sanh đường dẫn có chứa (inclued) ký tự thì thỏa đk 
+          exact: so sánh bằng chính xác đường dẫn
+      */}
+      {/* Template: mẫu UI được dùng chung cho nhiều trang
+          + HomeTemplate (Header - dùng chung cho các trang bình thường)
+          + FormTemplate (thiêt kế không dùng header)
+          + AdminTempate (sidebar, header riêng của admin)
        */}
+      {/* HOC: truyền component này vào props của component khác 
+       Home => props của HomeTemplate */}
       <Switch>
-        
+         {/* <Route exact path="/home" render={(propsRoute) => {
+          return <div>
+            <Header />
+            <Home {...propsRoute} />
+          </div>
+        }} />
+        <Route exact path="/about" render={(propsRoute) => {
+          return <div>
+            <Header />
+            <About {...propsRoute} />
+          </div>
+        }} /> */}
         <Route exact path="/home" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/about" component={About} />
@@ -40,6 +62,8 @@ function App() {
         <Route exact path="/useref" component={UseRefDemo} />
         <Route exact path="/reduxdemo" component={ReduxDemo} />
         <Route exact path="/apiredux" component={ApiMiddleWare} />
+        <Route exact path="/detail/:maPhim" component={Detail} />
+        <Route exact path="/profile" component={Profile} />
 
         {/* Khi ko có / trang cụ thể thì mặc định hiện Home */}
         <Route exact path="/" component={Home} />
