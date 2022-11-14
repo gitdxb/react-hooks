@@ -43,7 +43,7 @@ export default function Login(props) {
     }
   }
   return (
-    <div className='loginForm w-25 container'>
+    <div className='loginForm'>
       <form onSubmit={handleSubmit} className="py-5">
         <div className="form-group">
           <input onChange={handleInput} type="text" className="form-control" id="username" placeholder="Enter Username" />

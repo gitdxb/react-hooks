@@ -1,20 +1,19 @@
 import { LAY_DS_PHIM } from "../types/phimType";
 
-//rxr
-
+// rxr
 const initialState = {
-  mangPhim: []
-};
+    mangPhim: []
+}
 
-export const phimReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case LAY_DS_PHIM:
-        console.log(action.mangPhim);
-        state.mangPhim = action.mangPhim;
 
-        return { ...state }
+export const phimReducer =  (state = initialState, action) => {
+    switch (action.type) {
+        case LAY_DS_PHIM:
+            console.log(action.mangPhim);
+            state.mangPhim = action.mangPhim;
 
-    default:
-      return state;
-  }
-};
+            return {...state}
+        default:
+            return state
+    }
+}

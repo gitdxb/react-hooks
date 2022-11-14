@@ -1,11 +1,14 @@
-import { Route } from "react-router-dom"
-import Header from "../components/Header/Header"
+import { Fragment } from "react";
+import { Route } from "react-router-dom";
+import Header from "../components/Header/Header";
+
+
 
 export const HomeTemplate = (props) => {
-    return <Route exact path="/home" render={(propsRoute) => {
-        return <div>
+    return <Route exact path={props.path} render={(propsRoute) => {
+        return <Fragment>
             <Header />
             <props.component {...propsRoute} />
-        </div>
+        </Fragment>
     }} />
 }

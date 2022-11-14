@@ -12,22 +12,22 @@ export default function UseRefDemo() {
     let user = {} //!=> thì dữ liệu không đổi ở các hàm khác
 
     let userAccRef = useRef({
-        username: "",
-        password: ""
+        username:"",
+        password:""
     })
 
     let handleInput = (e) => {
         //destructoring (e.target.id, e.target.value)
-        let { id, value } = e.target;
-
+        let {id,value} = e.target;
+        
         // userAccRef.current.username = value;
-        userAccRef.current[id] = value
+        userAccRef.current[id]= value
 
         // user = {
         //     ...user,
         //     [id]:value
         // }
-
+    
         // let newState = {
         //     ...userAccount,
         //     [id]: value
@@ -40,7 +40,7 @@ export default function UseRefDemo() {
     console.log(userAccRef);//? lưu được dữ liệu mà không render lại UI
     // console.log(user);//! không có dữ liệu mới do không render UI
     // let handleSubmit = (e) => {
-
+       
     //     // console.log(user);
     //     // console.log(id, value);
     //     // let newState = {
@@ -52,22 +52,25 @@ export default function UseRefDemo() {
     // }
     return (
         <div className='container'>
-            <div>Number: {num} <button onClick={() => {
+            <div>Number: {num} <button onClick={() => { 
                 setNum(num + 1);
-            }} >Tăng</button></div>
+             }} >Tăng</button></div>
 
 
             <form className='w-50'>
                 <div className="form-group">
-                    <input onChange={(e) => {
+                    <input onChange={(e) => { 
                         handleInput(e);
-                    }} type="text" className="form-control" id="username" aria-describedby="helpId" placeholder="Enter username" />
+                     }} type="text" className="form-control" id="username" aria-describedby="helpId" placeholder="Enter username" />
                 </div>
                 <div className="form-group">
-                    <input onChange={handleInput} type="password" className="form-control" id="password" aria-describedby="helpId" placeholder="Enter password" />
+                    <input  onChange={handleInput} type="password" className="form-control" id="password" aria-describedby="helpId" placeholder="Enter password" />
                 </div>
                 <button className='btn btn-danger'>Submit</button>
             </form>
+
+
+
         </div>
     )
 }

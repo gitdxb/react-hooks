@@ -1,7 +1,25 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 export default function Header() {
+
+    let {uLogin} = useSelector(state => state.QLNDReducer)
+
+    let renderName = () => {
+
+        if(uLogin != null){
+            //đã đăng nhập
+            return <NavLink className="nav-link" to="/profile">Hello {uLogin.hoTen}</NavLink>
+
+        }else{
+            //chưa đăng
+            return <NavLink className="nav-link" to="/login">Login</NavLink>
+        }
+
+    }
+
+
     return (
         <header>
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -11,12 +29,13 @@ export default function Header() {
                 </button>
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                        
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/home">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/login">Login</NavLink>
+                            
+                            {renderName()}
+
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/register">Register</NavLink>
@@ -31,10 +50,10 @@ export default function Header() {
                             <NavLink className="nav-link" to="/use-effect">UseEffect</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/apircc">Api Rcc</NavLink>
+                            <NavLink className="nav-link" to="/apircc">ApiRcc</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/apirfc">Api Rfc</NavLink>
+                            <NavLink className="nav-link" to="/apirfc">ApiRfc</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/usecallback">UseCallBack</NavLink>
@@ -43,7 +62,7 @@ export default function Header() {
                             <NavLink className="nav-link" to="/usememo">UseMemo</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/useref">UseRefDemo</NavLink>
+                            <NavLink className="nav-link" to="/useref">UseRef</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/reduxdemo">ReduxDemo</NavLink>
@@ -54,14 +73,12 @@ export default function Header() {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/detail/phim123">Detail</NavLink>
                         </li>
+                        
                     </ul>
-                    <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="text" placeholder="Search" />
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                   
                 </div>
             </nav>
+
         </header>
     )
 }
- 
